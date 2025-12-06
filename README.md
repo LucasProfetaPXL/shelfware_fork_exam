@@ -12,15 +12,15 @@ How many great ideas or side projects have you started, only to forget the detai
 
 ## Features
 
-- ✅ Project management dashboard
-- ✅ Status tracking (Planning, In Progress, Completed, Abandoned)
-- ✅ User authentication with JWT
-- ✅ Project links to GitHub, deployed apps, and documentation
-- ✅ Hardware/component information storage (JSON)
-- ✅ Search and filter capabilities
-- ✅ RESTful API
-- ✅ Responsive design
-- ✅ Light/dark theme
+- Project management dashboard
+- Status tracking (Planning, In Progress, Completed, Abandoned)
+- User authentication with JWT
+- Project links to GitHub, deployed apps, and documentation
+- Hardware/component information storage (JSON)
+- Search and filter capabilities
+- RESTful API
+- Responsive design
+- Light/dark theme
 
 ## Contents
 
@@ -105,7 +105,7 @@ cp .env.example .env
 
 Required variables in `.env`:
 - `DATABASE_URL` - PostgreSQL connection string
-- `JWT_SECRET` - Secret key for JWT tokens (⚠️ **Change this in production!**)
+- `JWT_SECRET` - Secret key for JWT tokens (**Change this in production!**)
 - `BACKEND_PORT` - Port for the backend server (default: 3001)
 - `CORS_ORIGIN` - Allowed origins for CORS (default: http://localhost:5173)
 
