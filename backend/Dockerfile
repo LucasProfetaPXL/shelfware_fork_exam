@@ -11,7 +11,7 @@
 # - The first stage handles setup, dependency installation, and application build.
 # - The second stage copies only the essential output into a clean base image.
 
-# The result is a lightweight production image containing only what’s needed to run the app.
+# The result is a lightweight production image containing only what's needed to run the app.
 
 
 # ----------------------------------------------------
@@ -21,9 +21,9 @@
 # npx prisma generate
 # npm run build
 # npm start
-# npm run init-db
 #
 # ----------------------------------------------------
+
 # Multi-stage build for Shelfware Backend
 FROM node:20-alpine AS builder
 
@@ -56,8 +56,15 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/prisma ./prisma
 
+# Copy entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Set NODE_ENV to production
+ENV NODE_ENV=production
+
 # Expose port
 EXPOSE 3001
 
-# Initialize database and start application
-CMD ["sh", "-c", "npm run init-db && npm start"]
+# Use entrypoint script
+CMD ["/entrypoint.sh"]
